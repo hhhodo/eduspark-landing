@@ -94,10 +94,10 @@ html{scroll-behavior:smooth;}
 .mosaic{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5);}
 .mosaic-item{position:relative;border-radius:var(--radius-md);overflow:hidden;
   aspect-ratio:1/1;padding:var(--space-6);display:flex;flex-direction:column;justify-content:flex-start;
-  background:var(--color-primary-050);}
-.mosaic-item--accent-a{background:var(--accent-mint-100);}
+  background:var(--accent-mint-300);}
+.mosaic-item--accent-a{background:var(--accent-mint-300);}
 .mosaic-item--dark{background:var(--accent-green);color:var(--text-default-inverse);}
-.mosaic-item--accent-b{background:var(--accent-yellow-100);}
+.mosaic-item--accent-b{background:var(--accent-mint-300);}
 .mosaic-item .img{position:absolute;inset:0;z-index:-1;}
 .mosaic-item--center{align-items:center;text-align:center;justify-content:space-between;}
 .mosaic-item__tags{font-size:var(--fs-body-1);}
