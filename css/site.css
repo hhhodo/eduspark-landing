@@ -78,6 +78,7 @@ body{word-break:keep-all;overflow-wrap:break-word;}
 .hero__float img{width:100%;display:block;animation:heroFloatLeft 6s ease-in-out infinite;
   transform-origin:0% 50%;}
 .hero__float--right img{animation:heroFloatRight 6s ease-in-out infinite;
+  animation-delay:-3s;
   transform-origin:100% 50%;}
 /* the cropped (off-screen) edge stays pinned; the visible half swings through
    an arc around it, like a pendulum anchored at the hidden side */
