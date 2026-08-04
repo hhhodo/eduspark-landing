@@ -117,19 +117,19 @@
   <div class="container container--full">
     <div class="stats">
       <div class="stat reveal">
-        <p class="stat__number">750<span class="stat__unit">+</span></p>
+        <p class="stat__number"><span class="stat__value" data-count="750">0</span><span class="stat__unit">+</span></p>
         <p class="stat__label body-2">전국 운영 학습관 수(누적)</p>
       </div>
       <div class="stat reveal">
-        <p class="stat__number">1,700<span class="stat__unit">+</span></p>
+        <p class="stat__number"><span class="stat__value" data-count="1700">0</span><span class="stat__unit">+</span></p>
         <p class="stat__label body-2">인증된 시니어 강사진</p>
       </div>
       <div class="stat reveal">
-        <p class="stat__number">12,340<span class="stat__unit">+</span></p>
+        <p class="stat__number"><span class="stat__value" data-count="12340">0</span><span class="stat__unit">+</span></p>
         <p class="stat__label body-2">누적 수강 시니어 수</p>
       </div>
       <div class="stat reveal">
-        <p class="stat__number">50<span class="stat__unit">%</span></p>
+        <p class="stat__number"><span class="stat__value" data-count="50">0</span><span class="stat__unit">%</span></p>
         <p class="stat__label body-2">디지털 활용 능력 향상률</p>
       </div>
     </div>
@@ -260,6 +260,40 @@
     });
   }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
   els.forEach(function(el){ io.observe(el); });
+})();
+
+(function(){
+  var counters = document.querySelectorAll('.stat__value');
+  if (!counters.length) return;
+
+  function animateCount(el, target, duration) {
+    var startTime = null;
+    function step(ts) {
+      if (!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target).toLocaleString('en-US');
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target.toLocaleString('en-US');
+    }
+    requestAnimationFrame(step);
+  }
+
+  if (!('IntersectionObserver' in window)) {
+    counters.forEach(function(el){
+      el.textContent = parseInt(el.getAttribute('data-count'), 10).toLocaleString('en-US');
+    });
+    return;
+  }
+  var cIo = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        animateCount(entry.target, parseInt(entry.target.getAttribute('data-count'), 10), 1400);
+        cIo.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  counters.forEach(function(el){ cIo.observe(el); });
 })();
 </script>
 </body>
