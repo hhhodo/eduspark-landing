@@ -122,7 +122,7 @@ html{scroll-behavior:smooth;}
 .growth-band__head{position:relative;z-index:1;text-align:center;padding-bottom:var(--space-11);}
 .text-accent{color:var(--accent-blue);}
 .growth-band__blob{position:absolute;border-radius:var(--radius-circle);filter:blur(60px);z-index:0;}
-.growth-band__blob--left{left:-120px;top:-80px;width:420px;height:420px;background:var(--accent-mint-100);opacity:.8;}
+.growth-band__blob--left{left:-120px;top:60px;width:420px;height:420px;background:var(--accent-mint-100);opacity:.8;}
 .growth-band__blob--right{right:-80px;top:60px;width:320px;height:320px;background:var(--accent-mint-300);opacity:.5;}
 /* stage = the cards' own bounding box. Mint + wave are positioned as percentages
    of the stage, so the wave always crosses exactly through the cards' vertical middle. */
@@ -148,14 +148,17 @@ html{scroll-behavior:smooth;}
 .growth-card__body{color:var(--text-subtle);}
 .growth-card--dark .growth-card__body{color:var(--color-primary-100);}
 
-/* ---------- awards: left trophy+heading, right horizontal peek row ---------- */
-.awards-band{background:var(--color-canvas);}
-.awards-band__layout{display:flex;align-items:center;gap:var(--space-7);}
+/* ---------- awards: left trophy+heading, right side scroll-linked card reveal ---------- */
+.awards-band{background:var(--color-canvas);scroll-margin-top:calc(var(--space-5) + 96px);}
+.awards-band__track{position:relative;height:260vh;}
+.awards-band__sticky{position:sticky;top:0;height:100vh;min-height:640px;
+  display:flex;align-items:center;overflow:hidden;padding-block:var(--space-11);}
+.awards-band__layout{display:flex;align-items:center;gap:var(--space-7);width:100%;}
 .awards-band__intro{flex:0 0 auto;width:38%;padding-left:var(--gutter);
   display:flex;align-items:center;gap:var(--space-6);}
-.awards-band__trophy{width:200px;aspect-ratio:422/608;border-radius:var(--radius-md);flex:0 0 auto;}
+.awards-band__trophy{width:340px;aspect-ratio:422/608;border-radius:var(--radius-md);flex:0 0 auto;}
 .awards-band__row{flex:1 1 auto;min-width:0;overflow:hidden;}
-.awards{display:flex;gap:var(--space-5);}
+.awards{display:flex;gap:var(--space-5);will-change:transform;}
 .award-card{flex:0 0 62%;
   border-radius:var(--radius-md);padding:var(--space-7);aspect-ratio:1/1;
   background:var(--color-primary-050);color:var(--text-default);
@@ -188,6 +191,8 @@ html{scroll-behavior:smooth;}
   .mosaic,.stats{grid-template-columns:repeat(2,1fr);}
   .hero__title{font-size:var(--fs-h0);}
   .growth-card{width:min(var(--growth-card-w),42vw);height:auto;aspect-ratio:400/502;}
+  .awards-band__track{height:auto;}
+  .awards-band__sticky{position:static;height:auto;min-height:0;padding-block:var(--space-9);}
   .awards-band__layout{flex-direction:column;align-items:stretch;}
   .awards-band__intro{width:auto;padding-right:var(--gutter);}
   .award-card{flex-basis:70vw;}

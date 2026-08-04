@@ -171,47 +171,51 @@
   </div>
 </section>
 
-<!-- Awards — left trophy+heading, right horizontal peek row (1.5 cards visible, rest cropped) -->
-<section class="section awards-band" id="awards">
-  <div class="awards-band__layout">
-    <div class="awards-band__intro reveal">
-      <div class="awards-band__trophy img"></div>
-      <div>
-        <p class="section__eyebrow">GLOBAL RECOGNITION</p>
-        <h2 class="section__title">대한민국<br>시니어 교육의 표준,<br>EduSpark</h2>
-      </div>
-    </div>
-    <div class="awards-band__row">
-    <div class="awards">
-      <div class="award-card reveal">
-        <p class="award-card__index">01</p>
-        <div>
-          <p class="award-card__title">보건복지부 선정<br>우수 시니어 교육기관</p>
-          <p class="award-card__meta">노인일자리 여가 지원사업<br>공식 선정, 2025.10</p>
+<!-- Awards — left trophy+heading, right side scroll-linked so all 4 cards pass by -->
+<section class="awards-band" id="awards">
+  <div class="awards-band__track">
+    <div class="awards-band__sticky">
+      <div class="awards-band__layout">
+        <div class="awards-band__intro reveal">
+          <div class="awards-band__trophy img"></div>
+          <div>
+            <p class="section__eyebrow">GLOBAL RECOGNITION</p>
+            <h2 class="section__title">대한민국<br>시니어 교육의 표준,<br>EduSpark</h2>
+          </div>
+        </div>
+        <div class="awards-band__row">
+        <div class="awards" id="awardsRow">
+          <div class="award-card reveal">
+            <p class="award-card__index">01</p>
+            <div>
+              <p class="award-card__title">보건복지부 선정<br>우수 시니어 교육기관</p>
+              <p class="award-card__meta">노인일자리 여가 지원사업<br>공식 선정, 2025.10</p>
+            </div>
+          </div>
+          <div class="award-card award-card--dark reveal">
+            <p class="award-card__index">02</p>
+            <div>
+              <p class="award-card__title">대한민국<br>평생교육 장관상</p>
+              <p class="award-card__meta">평생교육 우수사례 공모전,<br>시니어 부문 대상, 2025.09</p>
+            </div>
+          </div>
+          <div class="award-card reveal">
+            <p class="award-card__index">03</p>
+            <div>
+              <p class="award-card__title">서울시 선정<br>우수 노인복지 프로그램</p>
+              <p class="award-card__meta">서울시 노인복지 정책 공모전<br>2025 우승, 2025.09</p>
+            </div>
+          </div>
+          <div class="award-card award-card--dark reveal">
+            <p class="award-card__index">04</p>
+            <div>
+              <p class="award-card__title">국제 액티브에이징<br>우수 프로그램 인증</p>
+              <p class="award-card__meta">Active Ageing Certified<br>2025/2026</p>
+            </div>
+          </div>
+        </div>
         </div>
       </div>
-      <div class="award-card award-card--dark reveal">
-        <p class="award-card__index">02</p>
-        <div>
-          <p class="award-card__title">대한민국<br>평생교육 장관상</p>
-          <p class="award-card__meta">평생교육 우수사례 공모전,<br>시니어 부문 대상, 2025.09</p>
-        </div>
-      </div>
-      <div class="award-card reveal">
-        <p class="award-card__index">03</p>
-        <div>
-          <p class="award-card__title">서울시 선정<br>우수 노인복지 프로그램</p>
-          <p class="award-card__meta">서울시 노인복지 정책 공모전<br>2025 우승, 2025.09</p>
-        </div>
-      </div>
-      <div class="award-card award-card--dark reveal">
-        <p class="award-card__index">04</p>
-        <div>
-          <p class="award-card__title">국제 액티브에이징<br>우수 프로그램 인증</p>
-          <p class="award-card__meta">Active Ageing Certified<br>2025/2026</p>
-        </div>
-      </div>
-    </div>
     </div>
   </div>
 </section>
@@ -294,6 +298,35 @@
     });
   }, { threshold: 0.4 });
   counters.forEach(function(el){ cIo.observe(el); });
+})();
+
+(function(){
+  var track = document.querySelector('.awards-band__track');
+  var row = document.getElementById('awardsRow');
+  if (!track || !row) return;
+
+  function isPinned(){
+    return getComputedStyle(track.querySelector('.awards-band__sticky')).position === 'sticky';
+  }
+
+  var ticking = false;
+  function update(){
+    ticking = false;
+    if (!isPinned()) { row.style.transform = 'none'; return; }
+    var rect = track.getBoundingClientRect();
+    var vh = window.innerHeight;
+    var total = rect.height - vh;
+    if (total <= 0) { row.style.transform = 'none'; return; }
+    var progress = Math.max(0, Math.min(1, -rect.top / total));
+    var maxScroll = Math.max(0, row.scrollWidth - row.parentElement.clientWidth);
+    row.style.transform = 'translateX(' + (-progress * maxScroll) + 'px)';
+  }
+  function onScroll(){
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
 })();
 </script>
 </body>
