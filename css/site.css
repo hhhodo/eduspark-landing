@@ -123,19 +123,25 @@ html{scroll-behavior:smooth;}
 .growth-card__body{color:var(--text-subtle);}
 .growth-card--dark .growth-card__body{color:var(--color-primary-100);}
 
-/* ---------- awards: horizontal row, ~1.5 cards visible, rest cropped ---------- */
+/* ---------- awards: left trophy+heading, right horizontal peek row ---------- */
 .awards-band{background:var(--color-canvas);}
-.awards-band__row{overflow:hidden;padding-top:var(--space-9);}
+.awards-band__layout{display:flex;align-items:center;gap:var(--space-7);}
+.awards-band__intro{flex:0 0 auto;width:38%;padding-left:var(--gutter);
+  display:flex;align-items:center;gap:var(--space-6);}
+.awards-band__trophy{width:200px;aspect-ratio:422/608;border-radius:var(--radius-md);flex:0 0 auto;}
+.awards-band__row{flex:1 1 auto;min-width:0;overflow:hidden;}
 .awards{display:flex;gap:var(--space-5);}
-.award-card{flex:0 0 calc((100vw - (var(--gutter) * 2) - var(--space-5)) / 1.5);
-  max-width:640px;min-width:320px;
+.award-card{flex:0 0 62%;
   border-radius:var(--radius-md);padding:var(--space-7);aspect-ratio:1/1;
-  background:var(--color-primary-800);color:var(--text-default-inverse);
+  background:var(--color-primary-050);color:var(--text-default);
   display:flex;flex-direction:column;justify-content:space-between;}
 .award-card--dark{background:var(--accent-green);color:var(--text-default-inverse);}
-.award-card__index{color:var(--text-default-inverse);font-weight:var(--fw-strong);}
-.award-card__title{color:var(--text-default-inverse);font-size:var(--fs-h3);font-weight:var(--fw-strong);padding-top:var(--space-5);}
-.award-card__meta{color:var(--text-default-inverse);font-size:var(--fs-body-1);padding-top:var(--space-5);}
+.award-card__index{color:var(--accent-green);font-size:var(--fs-h3);font-weight:var(--fw-strong);}
+.award-card--dark .award-card__index{color:var(--text-default-inverse);}
+.award-card__title{color:var(--text-default);font-size:var(--fs-h2);font-weight:var(--fw-strong);padding-top:var(--space-5);}
+.award-card--dark .award-card__title{color:var(--text-default-inverse);}
+.award-card__meta{color:var(--text-subtle);font-size:var(--fs-body-1);padding-top:var(--space-5);}
+.award-card--dark .award-card__meta{color:var(--color-primary-100);}
 
 /* ---------- cta ---------- */
 .cta{background:var(--accent-green);color:var(--text-default-inverse);
@@ -157,6 +163,8 @@ html{scroll-behavior:smooth;}
   .mosaic,.stats{grid-template-columns:repeat(2,1fr);}
   .hero__title{font-size:var(--fs-h0);}
   .growth-card{width:min(var(--growth-card-w),42vw);height:auto;aspect-ratio:400/502;}
+  .awards-band__layout{flex-direction:column;align-items:stretch;}
+  .awards-band__intro{width:auto;padding-right:var(--gutter);}
   .award-card{flex-basis:70vw;}
 }
 @media (max-width:768px){
