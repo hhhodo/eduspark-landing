@@ -10,13 +10,19 @@
 <body>
 
 <header class="nav">
-  <div class="container container--wide nav__row">
+  <nav class="nav__pill">
     <span class="nav__logo">EduSpark</span>
+    <ul class="nav__menu">
+      <li><a href="#programs">프로그램</a></li>
+      <li><a href="#stats">성과</a></li>
+      <li><a href="#growth">성장 프로그램</a></li>
+      <li><a href="#awards">수상내역</a></li>
+    </ul>
     <a href="#contact" class="btn">문의하기</a>
-  </div>
+  </nav>
 </header>
 
-<!-- Hero — full-bleed -->
+<!-- Hero — full-bleed, viewport-height -->
 <section class="hero">
   <div class="container container--narrow hero__content">
     <h1 class="hero__title">AI 교육,<br>이제 스파크 하나면 됩니다.</h1>
@@ -28,13 +34,13 @@
     </div>
   </div>
   <svg class="hero__wave" viewBox="0 0 1920 160" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0,0 C 480,150 1180,150 1920,10 L1920,160 L0,160 Z"></path>
+    <path d="M0,60 C 480,180 1180,180 1920,40 L1920,160 L0,160 Z"></path>
   </svg>
 </section>
 
 <!-- Programs row 1 — 6-6 -->
-<section class="section">
-  <div class="container container--wide">
+<section class="section" id="programs">
+  <div class="container container--full">
     <div class="grid">
       <div style="grid-column:span 12">
         <p class="section__eyebrow">EDU PROGRAMS</p>
@@ -81,7 +87,7 @@
 
 <!-- Programs row 2 — 5-7, offset -->
 <section class="section" style="padding-top:0">
-  <div class="container container--wide">
+  <div class="container container--full">
     <div class="grid">
       <div style="grid-column:span 5">
         <div class="mosaic">
@@ -118,8 +124,8 @@
 </section>
 
 <!-- Stats — 3-3-3-3 -->
-<section class="section">
-  <div class="container container--wide">
+<section class="section" id="stats">
+  <div class="container container--full">
     <div class="stats">
       <div class="stat">
         <p class="stat__number">750+</p>
@@ -142,7 +148,7 @@
 </section>
 
 <!-- Growth — 4-4-4 -->
-<section class="section growth-band">
+<section class="section growth-band" id="growth">
   <div class="container container--narrow" style="text-align:center;position:relative">
     <p class="section__eyebrow">K-뉴딜 아카데미</p>
     <h2 class="section__title" style="margin-inline:auto">참여 기업과 함께 청년들의 직무·직장 적응을 지원하는 사회 진입 준비 프로그램</h2>
@@ -164,8 +170,8 @@
 </section>
 
 <!-- Awards — 3-3-3-3 -->
-<section class="section">
-  <div class="container container--wide">
+<section class="section" id="awards">
+  <div class="container container--full">
     <p class="section__eyebrow">GLOBAL RECOGNITION</p>
     <h2 class="section__title">글로벌 AI 교육의 표준,<br>EduSpark</h2>
     <div class="awards">
@@ -213,7 +219,7 @@
 </section>
 
 <footer class="footer section">
-  <div class="container container--wide">
+  <div class="container container--full">
     <div class="footer__row">
       <span class="footer__logo">EduSpark</span>
       <div class="footer__meta">
