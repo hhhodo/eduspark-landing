@@ -75,18 +75,19 @@ body{word-break:keep-all;overflow-wrap:break-word;}
 .hero__float{position:absolute;top:50%;transform:translateY(-50%);width:80vw;z-index:1;pointer-events:none;}
 .hero__float--left{left:-40vw;}
 .hero__float--right{right:-40vw;}
-.hero__float img{width:100%;display:block;animation:heroFloat 6s linear infinite;}
-.hero__float--right img{animation-delay:-3s;}
-@keyframes heroFloat{
-  0%{transform:translate(0,0);}
-  12.5%{transform:translate(11px,-6px);}
-  25%{transform:translate(16px,-18px);}
-  37.5%{transform:translate(9px,-30px);}
-  50%{transform:translate(0,-34px);}
-  62.5%{transform:translate(-9px,-30px);}
-  75%{transform:translate(-16px,-18px);}
-  87.5%{transform:translate(-11px,-6px);}
-  100%{transform:translate(0,0);}
+.hero__float img{width:100%;display:block;animation:heroFloatLeft 6s ease-in-out infinite;
+  transform-origin:0% 50%;}
+.hero__float--right img{animation:heroFloatRight 6s ease-in-out infinite;
+  transform-origin:100% 50%;}
+/* the cropped (off-screen) edge stays pinned; the visible half swings through
+   an arc around it, like a pendulum anchored at the hidden side */
+@keyframes heroFloatLeft{
+  0%,100%{transform:rotate(-7deg);}
+  50%{transform:rotate(7deg);}
+}
+@keyframes heroFloatRight{
+  0%,100%{transform:rotate(7deg);}
+  50%{transform:rotate(-7deg);}
 }
 .hero__content{position:relative;z-index:2;width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;gap:var(--space-6);}
 .hero__title{color:var(--text-default);font-size:var(--fs-h0);font-weight:var(--fw-strong);
