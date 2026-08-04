@@ -1,12 +1,20 @@
 /* =========================================================
    EduSpark landing — page-specific styles.
-   Uses only tokens defined in styles.css.
+   Uses tokens defined in styles.css, plus this page's
+   brand accent (from the Figma reference) scoped here only.
    ========================================================= */
+:root{
+  --accent-mint-100:#d4f3eb;
+  --accent-mint-300:#9be2d0;
+}
 
 /* ---------- nav ---------- */
-.nav{position:absolute;top:0;left:0;width:100%;z-index:10;padding-block:var(--space-6);}
+.nav{position:sticky;top:0;left:0;width:100%;z-index:10;
+  padding-block:var(--space-4);background:rgba(255,255,255,.72);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:var(--border-1);}
 .nav__row{display:flex;align-items:center;justify-content:space-between;}
-.nav__logo{font-size:var(--fs-body-1);font-weight:var(--fw-strong);letter-spacing:var(--display-tracking);}
+.nav__logo{font-size:var(--fs-h3);font-weight:var(--fw-strong);letter-spacing:var(--display-tracking);}
 
 /* ---------- button ---------- */
 .btn{display:inline-flex;align-items:center;justify-content:center;
@@ -17,13 +25,14 @@
 .btn--inverse{background:var(--color-canvas);color:var(--text-default);}
 
 /* ---------- hero ---------- */
-.hero{position:relative;background:linear-gradient(180deg,var(--color-primary-050),var(--color-canvas));
-  padding-top:var(--space-13);padding-bottom:var(--space-11);}
-.hero__content{display:flex;flex-direction:column;align-items:center;text-align:center;gap:var(--space-6);}
-.hero__title{font-size:var(--fs-display-sm);font-weight:var(--fw-strong);
-  line-height:var(--lh-display);letter-spacing:var(--display-tracking);}
+.hero{position:relative;background:linear-gradient(180deg,var(--accent-mint-100),var(--color-canvas) 88%);
+  padding-top:var(--space-11);padding-bottom:calc(var(--space-11) + 60px);overflow:hidden;}
+.hero__content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:var(--space-6);}
+.hero__title{font-size:var(--fs-h0);font-weight:var(--fw-strong);
+  line-height:var(--lh-h0);letter-spacing:var(--display-tracking);}
 .hero__sub{max-width:var(--measure);color:var(--text-subtle);}
 .hero__badges{display:flex;gap:var(--space-3);flex-wrap:wrap;justify-content:center;padding-top:var(--space-3);}
+.hero__wave{position:absolute;left:0;bottom:-1px;width:100%;height:120px;fill:var(--accent-mint-300);opacity:.55;}
 
 /* ---------- section heading ---------- */
 .section__eyebrow{color:var(--text-subtle);font-weight:var(--fw-strong);
@@ -35,7 +44,7 @@
   aspect-ratio:1/1;display:flex;flex-direction:column;justify-content:space-between;
   padding:var(--space-7);background:var(--color-primary-900);color:var(--text-default-inverse);}
 .feature-card__tags{font-size:var(--fs-body-2);color:var(--text-subtle-inverse);}
-.feature-card__title{font-size:var(--fs-h2);font-weight:var(--fw-strong);letter-spacing:var(--display-tracking);}
+.feature-card__title{font-size:var(--fs-h3);font-weight:var(--fw-strong);letter-spacing:var(--display-tracking);}
 .feature-card__meta{color:var(--text-subtle-inverse);padding-top:var(--space-2);}
 .feature-card .img{position:absolute;inset:0;z-index:-1;}
 
@@ -56,7 +65,7 @@
 /* ---------- stats ---------- */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-5);}
 .stat{padding-block:var(--space-5);border-top:var(--border-1);}
-.stat__number{font-size:var(--fs-display-sm);font-weight:var(--fw-strong);letter-spacing:var(--display-tracking);}
+.stat__number{font-size:var(--fs-h0);font-weight:var(--fw-strong);letter-spacing:var(--display-tracking);}
 .stat__label{color:var(--text-subtle);padding-top:var(--space-3);}
 
 /* ---------- growth cards ---------- */
