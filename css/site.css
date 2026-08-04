@@ -75,19 +75,25 @@ body{word-break:keep-all;overflow-wrap:break-word;}
 .hero__float{position:absolute;top:50%;transform:translateY(-50%);width:80vw;z-index:1;pointer-events:none;}
 .hero__float--left{left:-40vw;}
 .hero__float--right{right:-40vw;}
-.hero__float img{width:100%;display:block;animation:heroFloatLeft 22s ease-in-out infinite;
-  transform-origin:0% 50%;}
+.hero__float img{width:100%;display:block;animation:heroFloatLeft 22s ease-in-out infinite;}
 .hero__float--right img{animation:heroFloatRight 22s ease-in-out infinite;
-  animation-delay:-11s;
-  transform-origin:100% 50%;}
-/* rolls like a wheel while its pivot drifts diagonally, then eases back */
+  animation-delay:-11s;}
+/* two independent axes of drift (not a single pivot sweep) trace a loose, organic loop */
 @keyframes heroFloatLeft{
-  0%,100%{transform:translate(0,0) rotate(-10deg);}
-  50%{transform:translate(26px,-28px) rotate(10deg);}
+  0%{translate:0 0;}
+  20%{translate:20px -12px;}
+  40%{translate:12px -32px;}
+  60%{translate:-14px -28px;}
+  80%{translate:-10px -8px;}
+  100%{translate:0 0;}
 }
 @keyframes heroFloatRight{
-  0%,100%{transform:translate(0,0) rotate(10deg);}
-  50%{transform:translate(-26px,-28px) rotate(-10deg);}
+  0%{translate:0 0;}
+  20%{translate:-20px -12px;}
+  40%{translate:-12px -32px;}
+  60%{translate:14px -28px;}
+  80%{translate:10px -8px;}
+  100%{translate:0 0;}
 }
 .hero__content{position:relative;z-index:2;width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;gap:var(--space-6);}
 .hero__title{color:var(--text-default);font-size:var(--fs-h0);font-weight:var(--fw-strong);
