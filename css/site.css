@@ -80,15 +80,14 @@ body{word-break:keep-all;overflow-wrap:break-word;}
 .hero__float--right img{animation:heroFloatRight 22s ease-in-out infinite;
   animation-delay:-11s;
   transform-origin:100% 50%;}
-/* the cropped (off-screen) edge stays pinned; the visible half swings through
-   an arc around it, like a pendulum anchored at the hidden side */
+/* rolls like a wheel while its pivot drifts diagonally, then eases back */
 @keyframes heroFloatLeft{
-  0%,100%{transform:rotate(-7deg);}
-  50%{transform:rotate(7deg);}
+  0%,100%{transform:translate(0,0) rotate(-10deg);}
+  50%{transform:translate(26px,-28px) rotate(10deg);}
 }
 @keyframes heroFloatRight{
-  0%,100%{transform:rotate(7deg);}
-  50%{transform:rotate(-7deg);}
+  0%,100%{transform:translate(0,0) rotate(10deg);}
+  50%{transform:translate(-26px,-28px) rotate(-10deg);}
 }
 .hero__content{position:relative;z-index:2;width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;gap:var(--space-6);}
 .hero__title{color:var(--text-default);font-size:var(--fs-h0);font-weight:var(--fw-strong);
