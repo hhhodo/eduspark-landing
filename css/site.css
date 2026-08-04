@@ -84,9 +84,8 @@ html{scroll-behavior:smooth;}
 .mosaic-item__title{font-size:var(--fs-h3);font-weight:var(--fw-strong);padding-top:var(--space-5);}
 .mosaic-item__caption{color:var(--text-subtle);padding-top:var(--space-2);}
 .mosaic-item--dark .mosaic-item__caption{color:var(--color-primary-100);}
-.mosaic-item__icon{position:absolute;right:var(--space-6);bottom:var(--space-6);}
-.mosaic-item__icon--green{color:var(--accent-green);}
-.mosaic-item__icon--yellow{color:var(--accent-yellow);}
+.mosaic-item__icon{position:absolute;right:var(--space-6);bottom:var(--space-6);
+  width:480px;height:480px;border-radius:var(--radius-md);}
 
 /* ---------- stats ---------- */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-5);}
