@@ -94,7 +94,7 @@ html{scroll-behavior:smooth;}
 
 /* ---------- growth cards ---------- */
 .growth-band{position:relative;overflow:hidden;background:var(--color-canvas);}
-.growth-band__head{position:relative;z-index:1;text-align:center;}
+.growth-band__head{position:relative;z-index:1;text-align:center;padding-bottom:var(--space-11);}
 .text-accent{color:var(--accent-blue);}
 .growth-band__blob{position:absolute;border-radius:var(--radius-circle);filter:blur(60px);z-index:0;}
 .growth-band__blob--left{left:-120px;top:-80px;width:420px;height:420px;background:var(--accent-mint-100);opacity:.8;}
@@ -116,7 +116,7 @@ html{scroll-behavior:smooth;}
 .growth-card:nth-child(2){transform:rotate(2deg);}
 .growth-card:nth-child(3){transform:rotate(-2deg);}
 .growth-card--dark{background:var(--accent-green);color:var(--text-default-inverse);border:none;}
-.growth-card__icon{position:absolute;top:-260px;left:50%;transform:translateX(-50%);width:300px;height:300px;}
+.growth-card__icon{position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:300px;height:300px;}
 .growth-card__icon .img{width:100%;height:100%;border-radius:var(--radius-md);}
 .growth-card__title{font-size:var(--fs-h3);font-weight:var(--fw-strong);}
 .growth-card__body{color:var(--text-subtle);}
