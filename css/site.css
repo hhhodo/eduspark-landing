@@ -116,7 +116,7 @@ html{scroll-behavior:smooth;}
 .growth-card:nth-child(2){transform:rotate(2deg);}
 .growth-card:nth-child(3){transform:rotate(-2deg);}
 .growth-card--dark{background:var(--accent-green);color:var(--text-default-inverse);border:none;}
-.growth-card__icon{position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:300px;height:300px;}
+.growth-card__icon{position:absolute;top:-260px;left:50%;transform:translateX(-50%);width:300px;height:300px;}
 .growth-card__icon .img{width:100%;height:100%;border-radius:var(--radius-md);}
 .growth-card__title{font-size:var(--fs-h3);font-weight:var(--fw-strong);}
 .growth-card__body{color:var(--text-subtle);}
