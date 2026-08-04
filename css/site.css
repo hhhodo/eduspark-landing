@@ -63,7 +63,7 @@ body{word-break:keep-all;overflow-wrap:break-word;}
 .btn{display:inline-flex;align-items:center;justify-content:center;
   padding:var(--space-4) var(--space-6);border-radius:var(--radius-sm);
   font-size:var(--fs-body-1);font-weight:var(--fw-strong);
-  background:linear-gradient(180deg,var(--accent-mint-100) 0%,var(--accent-green) 100%);
+  background:linear-gradient(180deg,var(--accent-mint-300),var(--accent-mint-100));
   color:var(--text-default);
   border:none;}
 .btn--inverse{background:var(--color-canvas);color:var(--text-default);}
