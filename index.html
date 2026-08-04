@@ -27,11 +27,6 @@
   <div class="container container--narrow hero__content">
     <h1 class="hero__title">AI 교육,<br>이제 스파크 하나면 됩니다.</h1>
     <p class="hero__sub body-2">초등학생부터 시니어까지, 모두를 위한 맞춤형 AI·디지털 교육 플랫폼</p>
-    <div class="hero__badges">
-      <span class="badge">초중고 정규 교육과정</span>
-      <span class="badge">성인·시니어 재교육</span>
-      <span class="badge">기업 DX 아카데미</span>
-    </div>
   </div>
   <svg class="hero__wave" viewBox="0 0 1920 160" preserveAspectRatio="none" aria-hidden="true">
     <path d="M0,60 C 480,180 1180,180 1920,40 L1920,160 L0,160 Z"></path>
@@ -82,14 +77,8 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- Programs row 2 — 5-7, offset -->
-<section class="section" style="padding-top:0">
-  <div class="container container--full">
-    <div class="grid">
-      <div style="grid-column:span 5">
+    <div class="grid" style="padding-top:var(--space-5)">
+      <div style="grid-column:span 6">
         <div class="mosaic">
           <div class="mosaic-item">
             <div class="img" style="position:absolute;inset:0;z-index:-1"></div>
@@ -112,7 +101,7 @@
           </div>
         </div>
       </div>
-      <div style="grid-column:span 7">
+      <div style="grid-column:span 6">
         <div class="feature-card">
           <div class="img" style="position:absolute;inset:0;z-index:-1"></div>
           <p class="feature-card__tags">#디지털소양 #컴퓨팅사고력 #파이썬 기초~활용</p>
@@ -128,19 +117,19 @@
   <div class="container container--full">
     <div class="stats">
       <div class="stat">
-        <p class="stat__number">750+</p>
+        <p class="stat__number">750<span class="stat__unit">+</span></p>
         <p class="stat__label body-2">국내 운영 학교 수(누적)</p>
       </div>
       <div class="stat">
-        <p class="stat__number">1,700+</p>
+        <p class="stat__number">1,700<span class="stat__unit">+</span></p>
         <p class="stat__label body-2">인증된 교사 가입자</p>
       </div>
       <div class="stat">
-        <p class="stat__number">12,340+</p>
+        <p class="stat__number">12,340<span class="stat__unit">+</span></p>
         <p class="stat__label body-2">EduSpark 내 생성된 교실 수</p>
       </div>
       <div class="stat">
-        <p class="stat__number">50%</p>
+        <p class="stat__number">50<span class="stat__unit">%</span></p>
         <p class="stat__label body-2">고등학교 정보 수업 도입률</p>
       </div>
     </div>
@@ -149,19 +138,29 @@
 
 <!-- Growth — 4-4-4 -->
 <section class="section growth-band" id="growth">
-  <div class="container container--narrow" style="text-align:center;position:relative">
+  <div class="growth-band__blob growth-band__blob--left" aria-hidden="true"></div>
+  <div class="growth-band__blob growth-band__blob--right" aria-hidden="true"></div>
+  <svg class="growth-band__wave" viewBox="0 0 1920 460" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,140 C 480,40 1180,240 1920,90 L1920,460 L0,460 Z"></path>
+  </svg>
+  <div class="container container--narrow growth-band__head">
     <p class="section__eyebrow">K-뉴딜 아카데미</p>
-    <h2 class="section__title" style="margin-inline:auto">참여 기업과 함께 청년들의 직무·직장 적응을 지원하는 사회 진입 준비 프로그램</h2>
+    <h2 class="section__title" style="margin-inline:auto">참여 기업과 함께 청년들의 직무·직장 적응을<br>지원하는 <span class="text-accent">사회 진입 준비 프로그램</span></h2>
+  </div>
+  <div class="container container--full">
     <div class="growth">
       <div class="growth-card">
+        <div class="growth-card__icon"><div class="img"></div></div>
         <p class="growth-card__title">새로운 경험의 시작</p>
         <p class="growth-card__body body-2">관심 있는 분야를 직접 경험하며 나에게 맞는 커리어 방향을 발견하는 교육</p>
       </div>
       <div class="growth-card growth-card--dark">
+        <div class="growth-card__icon"><div class="img"></div></div>
         <p class="growth-card__title">다양한 분야 교육</p>
         <p class="growth-card__body body-2">AI, 금융, 문화콘텐츠 등 청년 선호도가 높은 교육과정 제공</p>
       </div>
       <div class="growth-card">
+        <div class="growth-card__icon"><div class="img"></div></div>
         <p class="growth-card__title">가능성을 넓히는 성장</p>
         <p class="growth-card__body body-2">프로젝트·멘토링·커리어 탐색까지 다양한 성장 경험을 지원하는 교육</p>
       </div>
@@ -169,38 +168,45 @@
   </div>
 </section>
 
-<!-- Awards — 3-3-3-3 -->
-<section class="section" id="awards">
+<!-- Awards — 5-7, left intro + right 2x2 -->
+<section class="section awards-band" id="awards">
   <div class="container container--full">
-    <p class="section__eyebrow">GLOBAL RECOGNITION</p>
-    <h2 class="section__title">글로벌 AI 교육의 표준,<br>EduSpark</h2>
-    <div class="awards">
-      <div class="award-card">
-        <p class="award-card__index">01</p>
-        <div>
-          <p class="award-card__title">사우디 투자부 선정<br>12대 혁신 AI 스타트업</p>
-          <p class="award-card__meta">중소벤처기업부 중동 진출 지원사업<br>공식 선정, 2025.10</p>
-        </div>
+    <div class="grid">
+      <div class="awards-band__intro" style="grid-column:span 5">
+        <p class="section__eyebrow">GLOBAL RECOGNITION</p>
+        <h2 class="section__title">글로벌 AI 교육의 표준,<br>EduSpark</h2>
+        <div class="awards-band__badge img"></div>
       </div>
-      <div class="award-card award-card--dark">
-        <p class="award-card__index">02</p>
-        <div>
-          <p class="award-card__title">대한민국 AI 에듀테크<br>장관상</p>
-          <p class="award-card__meta">에듀테크 비즈니스모델 공모전,<br>글로벌 비즈니스 부문 대상, 2025.09</p>
-        </div>
-      </div>
-      <div class="award-card">
-        <p class="award-card__index">03</p>
-        <div>
-          <p class="award-card__title">AGCC 선정<br>두바이 진출 유망 AI 스타트업</p>
-          <p class="award-card__meta">Dubai Startup Competition<br>2025 우승, 2025.09</p>
-        </div>
-      </div>
-      <div class="award-card award-card--dark">
-        <p class="award-card__index">04</p>
-        <div>
-          <p class="award-card__title">영국 EdTech Impact<br>인증 획득</p>
-          <p class="award-card__meta">Pedagogical Quality Certified<br>2025/2026</p>
+      <div style="grid-column:span 7">
+        <div class="awards">
+          <div class="award-card">
+            <p class="award-card__index">01</p>
+            <div>
+              <p class="award-card__title">사우디 투자부 선정<br>12대 혁신 AI 스타트업</p>
+              <p class="award-card__meta">중소벤처기업부 중동 진출 지원사업<br>공식 선정, 2025.10</p>
+            </div>
+          </div>
+          <div class="award-card award-card--dark">
+            <p class="award-card__index">02</p>
+            <div>
+              <p class="award-card__title">대한민국 AI 에듀테크<br>장관상</p>
+              <p class="award-card__meta">에듀테크 비즈니스모델 공모전,<br>글로벌 비즈니스 부문 대상, 2025.09</p>
+            </div>
+          </div>
+          <div class="award-card">
+            <p class="award-card__index">03</p>
+            <div>
+              <p class="award-card__title">AGCC 선정<br>두바이 진출 유망 AI 스타트업</p>
+              <p class="award-card__meta">Dubai Startup Competition<br>2025 우승, 2025.09</p>
+            </div>
+          </div>
+          <div class="award-card award-card--dark">
+            <p class="award-card__index">04</p>
+            <div>
+              <p class="award-card__title">영국 EdTech Impact<br>인증 획득</p>
+              <p class="award-card__meta">Pedagogical Quality Certified<br>2025/2026</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
