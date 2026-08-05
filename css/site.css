@@ -199,7 +199,7 @@ body{word-break:keep-all;overflow-wrap:break-word;}
   display:flex;flex-direction:column;justify-content:space-between;}
 .award-card--dark{background:linear-gradient(180deg,var(--accent-mint-300) 0%,var(--accent-green) 100%);color:var(--text-default);}
 .award-card__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  opacity:.1;z-index:0;pointer-events:none;}
+  opacity:.15;z-index:0;pointer-events:none;}
 .award-card > *:not(.award-card__bg){position:relative;z-index:1;}
 .award-card__index{color:var(--accent-green);font-size:var(--fs-body-1);font-weight:var(--fw-strong);}
 .award-card--dark .award-card__index{color:var(--text-default);}
