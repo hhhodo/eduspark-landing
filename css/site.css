@@ -132,9 +132,11 @@ body{word-break:keep-all;overflow-wrap:break-word;}
 .mosaic-item--center{background:var(--color-primary-050);}
 .mosaic-item__tags{font-size:var(--fs-body-1);}
 .mosaic-item--dark .mosaic-item__tags{color:var(--text-default);}
-.mosaic-item__title{font-size:var(--fs-h3);font-weight:var(--fw-strong);padding-top:var(--space-5);}
+.mosaic-item__title{font-size:var(--fs-h2);font-weight:var(--fw-strong);padding-top:var(--space-5);}
 .mosaic-item__caption{color:var(--text-subtle);padding-top:var(--space-2);}
 .mosaic-item--dark .mosaic-item__caption{color:var(--text-default);}
+.mosaic-item__body{color:var(--text-subtle);font-size:var(--fs-body-1);padding-top:var(--space-3);
+  position:relative;z-index:1;max-width:80%;}
 .mosaic-item__icon{position:absolute;right:var(--space-6);bottom:var(--space-6);z-index:0;
   width:42%;height:42%;max-width:320px;max-height:320px;border-radius:var(--radius-md);object-fit:cover;}
 
