@@ -159,8 +159,6 @@
 <section class="section growth-band" id="growth">
   <div class="growth-band__blob growth-band__blob--left" aria-hidden="true"></div>
   <div class="growth-band__blob growth-band__blob--right" aria-hidden="true"></div>
-  <div class="growth-band__track">
-  <div class="growth-band__pin">
   <div class="container container--narrow growth-band__head reveal">
     <p class="section__eyebrow">액티브 시니어 아카데미</p>
     <h2 class="section__title" style="margin-inline:auto">지역사회·기관과 함께 시니어의 새로운 도전을 지원하는<br><span class="text-accent">사회참여 준비 프로그램</span></h2>
@@ -171,7 +169,7 @@
       <path d="M0,100 C 480,-20 1180,-20 1920,120 L1920,160 L0,160 Z"></path>
     </svg>
     <div class="container container--full growth-band__cards">
-      <div class="growth" id="growthCards">
+      <div class="growth">
       <div class="growth-card reveal">
         <div class="growth-card__icon"><img src="assets/images/mask-group-3.png" alt=""></div>
         <p class="growth-card__title">새로운 인생의 시작</p>
@@ -189,8 +187,6 @@
       </div>
     </div>
     </div>
-  </div>
-  </div>
   </div>
 </section>
 
@@ -360,42 +356,6 @@
     var progress = Math.max(0, Math.min(1, -rect.top / total));
     var maxScroll = Math.max(0, row.scrollWidth - row.parentElement.clientWidth);
     row.style.transform = 'translateX(' + (-progress * maxScroll) + 'px)';
-  }
-  function onScroll(){
-    if (!ticking) { requestAnimationFrame(update); ticking = true; }
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-  update();
-})();
-
-(function(){
-  var track = document.querySelector('.growth-band__track');
-  var cardsWrap = document.getElementById('growthCards');
-  if (!track || !cardsWrap) return;
-  var cards = cardsWrap.querySelectorAll('.growth-card');
-
-  function isPinned(){
-    var pin = track.querySelector('.growth-band__pin');
-    return pin && getComputedStyle(pin).position === 'sticky';
-  }
-
-  var ticking = false;
-  function update(){
-    ticking = false;
-    if (!isPinned()) {
-      cards.forEach(function(c){ c.classList.add('is-stacked'); });
-      return;
-    }
-    var rect = track.getBoundingClientRect();
-    var vh = window.innerHeight;
-    var total = rect.height - vh;
-    if (total <= 0) return;
-    var progress = Math.max(0, Math.min(1, -rect.top / total));
-    var step = 1 / cards.length;
-    cards.forEach(function(c, i){
-      c.classList.toggle('is-stacked', progress >= i * step);
-    });
   }
   function onScroll(){
     if (!ticking) { requestAnimationFrame(update); ticking = true; }
