@@ -21,8 +21,11 @@
 
 html{scroll-behavior:smooth;}
 
-/* Korean text must only wrap at spaces, never mid-word between syllables */
-body{word-break:keep-all;overflow-wrap:break-word;}
+/* overflow-x:hidden = safety net: several decorative elements (blur blobs, hero
+   floats) bleed past their section on purpose via negative offsets — this stops
+   that from turning into a horizontal scrollbar on the page itself.
+   word-break/overflow-wrap = Korean text must only wrap at spaces, never mid-word. */
+body{overflow-x:hidden;word-break:keep-all;overflow-wrap:break-word;}
 
 /* ---------- scroll reveal ---------- */
 .reveal{opacity:0;transform:translateY(28px);
