@@ -274,18 +274,25 @@ body{overflow-x:hidden;word-break:keep-all;overflow-wrap:break-word;}
   .programs-slider .mosaic-item{flex:0 0 80vw;scroll-snap-align:start;}
   .programs-slider .feature-card{order:-1;}
   .feature-card__title{font-size:32px;}
-  /* 액티브 시니어 아카데미: the TITLE pins in place first, then cards stack up
-     underneath it one at a time as you keep scrolling. position:sticky needs a
-     non-clipping ancestor, so drop growth-band's overflow:hidden here. */
+  /* 액티브 시니어 아카데미: the WHOLE section pins (same track+sticky trick as
+     Awards) while you keep scrolling, and the cards snap-stack on top of each
+     other inside that frozen viewport — driven by growthCards.js below. */
   .growth-band{overflow:visible;}
-  .growth-band__head{position:sticky;top:64px;z-index:5;background:var(--color-canvas);
-    padding-bottom:var(--space-4);}
-  .growth{flex-direction:column;align-items:center;gap:var(--space-6);}
-  .growth-card{position:sticky;}
-  .growth-card:nth-child(1){top:230px;}
-  .growth-card:nth-child(2){top:350px;}
-  .growth-card:nth-child(3){top:470px;}
-  .growth-card{width:min(var(--growth-card-w),80vw);}
+  .growth-band__track{position:relative;height:260vh;}
+  .growth-band__pin{position:sticky;top:0;height:100vh;min-height:560px;
+    display:flex;flex-direction:column;justify-content:center;overflow:hidden;}
+  .growth-band__head{padding-bottom:var(--space-6);}
+  .growth{position:relative;height:min(var(--growth-card-h),74vw);}
+  .growth-card{position:absolute;top:0;left:50%;
+    width:min(var(--growth-card-w),80vw);height:100%;
+    opacity:0;transition:opacity .25s ease,transform .25s ease;}
+  .growth-card.is-stacked{opacity:1;}
+  .growth-card:nth-child(1){transform:translate(-50%,16px) rotate(-5.13deg);}
+  .growth-card:nth-child(1).is-stacked{transform:translate(-50%,0) rotate(-5.13deg);}
+  .growth-card:nth-child(2){transform:translate(-50%,16px) rotate(4.85deg);}
+  .growth-card:nth-child(2).is-stacked{transform:translate(-50%,0) rotate(4.85deg);}
+  .growth-card:nth-child(3){transform:translate(-50%,16px) rotate(-5.13deg);}
+  .growth-card:nth-child(3).is-stacked{transform:translate(-50%,0) rotate(-5.13deg);}
   .growth-card__icon{width:130px;height:130px;right:-16px;bottom:-16px;}
   .award-card{flex-basis:78vw;min-width:0;}
   .stat__number{font-size:72px;}
@@ -328,7 +335,7 @@ body{overflow-x:hidden;word-break:keep-all;overflow-wrap:break-word;}
 @media (max-width:420px){
   .award-card{flex-basis:88vw;}
   .nav{top:var(--space-2);}
-  .nav__pill{padding:var(--space-2) var(--space-3);gap:var(--space-2); radius:var(--radius-sm);}
+  .nav__pill{padding:var(--space-2) var(--space-3);gap:var(--space-2); border-radius:var(--radius-md);}
   .nav__logo{font-size:var(--fs-body-2);}
   .btn{padding:var(--space-2) var(--space-3);}
 }

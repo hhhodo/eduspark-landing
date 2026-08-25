@@ -368,6 +368,42 @@
   window.addEventListener('resize', onScroll);
   update();
 })();
+
+(function(){
+  var track = document.querySelector('.growth-band__track');
+  var cardsWrap = document.getElementById('growthCards');
+  if (!track || !cardsWrap) return;
+  var cards = cardsWrap.querySelectorAll('.growth-card');
+
+  function isPinned(){
+    var pin = track.querySelector('.growth-band__pin');
+    return pin && getComputedStyle(pin).position === 'sticky';
+  }
+
+  var ticking = false;
+  function update(){
+    ticking = false;
+    if (!isPinned()) {
+      cards.forEach(function(c){ c.classList.add('is-stacked'); });
+      return;
+    }
+    var rect = track.getBoundingClientRect();
+    var vh = window.innerHeight;
+    var total = rect.height - vh;
+    if (total <= 0) return;
+    var progress = Math.max(0, Math.min(1, -rect.top / total));
+    var step = 1 / cards.length;
+    cards.forEach(function(c, i){
+      c.classList.toggle('is-stacked', progress >= i * step);
+    });
+  }
+  function onScroll(){
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
+})();
 </script>
 </body>
 </html>
