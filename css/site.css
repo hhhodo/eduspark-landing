@@ -259,15 +259,15 @@ body{word-break:keep-all;overflow-wrap:break-word;}
   /* wave: the path is drawn for a 12:1 canvas — squishing it into a phone's
      narrow width at full height reads as jagged, so flatten it down */
   .hero__wave{height:64px;}
-  /* floats: rotated 90deg so the edge-crop reads against a horizontal edge;
-     top one anchored toward the left, bottom one toward the right — diagonal, not centered */
-  .hero__float{top:auto;left:auto;right:auto;transform:none;width:100vw;}
-  .hero__float--left{top:-24vw;left:-30vw;}
-  .hero__float--right{top:auto;bottom:-24vw;right:-30vw;}
-  /* clip to the left/right half of the source BEFORE rotating, so one
-     genuinely shows the image's left side and the other its right side */
-  .hero__float--left img{clip-path:inset(0 50% 0 0);transform:rotate(90deg);}
-  .hero__float--right img{clip-path:inset(0 0 0 50%);transform:rotate(-90deg);}
+  /* floats: no rotation. The wrapper is a fixed-size window with overflow:hidden,
+     the img inside is rendered at 2x that width — shifting it left/right reveals
+     the source image's left half in the top window, right half in the bottom one. */
+  .hero__float{top:auto;left:auto;right:auto;bottom:auto;transform:none;
+    width:65vw;overflow:hidden;border-radius:0;}
+  .hero__float--left{top:64px;left:-6vw;}
+  .hero__float--right{bottom:70px;right:-6vw;}
+  .hero__float img{width:130vw;margin-left:0;}
+  .hero__float--right img{margin-left:-65vw;}
 }
 @media (max-width:420px){
   .award-card{flex-basis:88vw;}
