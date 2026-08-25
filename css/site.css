@@ -264,8 +264,10 @@ body{word-break:keep-all;overflow-wrap:break-word;}
   .hero__float{top:auto;left:auto;right:auto;transform:none;width:100vw;}
   .hero__float--left{top:-24vw;left:-30vw;}
   .hero__float--right{top:auto;bottom:-24vw;right:-30vw;}
-  .hero__float--left img{transform:rotate(90deg);}
-  .hero__float--right img{transform:rotate(-90deg);}
+  /* clip to the left/right half of the source BEFORE rotating, so one
+     genuinely shows the image's left side and the other its right side */
+  .hero__float--left img{clip-path:inset(0 50% 0 0);transform:rotate(90deg);}
+  .hero__float--right img{clip-path:inset(0 0 0 50%);transform:rotate(-90deg);}
 }
 @media (max-width:420px){
   .award-card{flex-basis:88vw;}
