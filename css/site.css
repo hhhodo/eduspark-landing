@@ -261,12 +261,14 @@ body{word-break:keep-all;overflow-wrap:break-word;}
   .hero__wave{height:64px;}
   /* floats: no rotation. The wrapper is a fixed-size window with overflow:hidden,
      the img inside is rendered at 2x that width — shifting it left/right reveals
-     the source image's left half in the top window, right half in the bottom one. */
+     the source image's left half in the top window, right half in the bottom one.
+     Animation is disabled here: the desktop drift (up to 130px) was clipping the
+     image almost entirely out of this much smaller window. */
   .hero__float{top:auto;left:auto;right:auto;bottom:auto;transform:none;
-    width:65vw;overflow:hidden;border-radius:0;}
+    width:65vw;aspect-ratio:1669/2662;overflow:hidden;border-radius:0;}
   .hero__float--left{top:64px;left:-6vw;}
   .hero__float--right{bottom:70px;right:-6vw;}
-  .hero__float img{width:130vw;margin-left:0;}
+  .hero__float img{width:130vw;max-width:130vw;height:auto;margin-left:0;animation:none;translate:0 0;}
   .hero__float--right img{margin-left:-65vw;}
 }
 @media (max-width:420px){
