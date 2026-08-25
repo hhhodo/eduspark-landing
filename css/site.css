@@ -237,6 +237,10 @@ body{word-break:keep-all;overflow-wrap:break-word;}
   .hero__float{width:60vw;}
   .hero__float--left{left:-30vw;}
   .hero__float--right{right:-30vw;}
+  /* the scroll-jacked reveal is off below desktop; let people swipe the row instead */
+  .awards-band__row{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .awards{scroll-snap-type:x mandatory;}
+  .award-card{scroll-snap-align:start;}
 }
 @media (max-width:768px){
   /* the outer 12-col grid uses inline grid-column spans; force full-width stacking */
@@ -245,6 +249,18 @@ body{word-break:keep-all;overflow-wrap:break-word;}
   .footer__row{flex-direction:column;}
   .footer__meta{align-items:flex-start;text-align:left;}
   .nav__menu{display:none;}
+  /* hero title was sitting low because padding-top(240) far outweighed padding-bottom(120) */
+  .hero{padding-top:100px;padding-bottom:80px;}
+  /* SENIOR PROGRAMS: row 1 and row 2 become two swipeable slides */
+  .programs-slider{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;}
+  .programs-slider > .grid{flex:0 0 100%;min-width:100%;scroll-snap-align:start;}
+  .feature-card__title{font-size:32px;}
+  /* 액티브 시니어 아카데미: cards snap-stack on top of each other while scrolling */
+  .growth{flex-direction:column;align-items:center;gap:var(--space-6);}
+  .growth-card{position:sticky;}
+  .growth-card:nth-child(1){top:90px;}
+  .growth-card:nth-child(2){top:120px;}
+  .growth-card:nth-child(3){top:150px;}
   .growth-card{width:min(var(--growth-card-w),80vw);}
   .growth-card__icon{width:130px;height:130px;right:-16px;bottom:-16px;}
   .award-card{flex-basis:78vw;min-width:0;}
