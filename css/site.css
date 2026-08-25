@@ -240,15 +240,17 @@ body{overflow-x:hidden;word-break:keep-all;overflow-wrap:break-word;}
   .growth-card{width:min(var(--growth-card-w),42vw);height:auto;aspect-ratio:400/502;}
   .growth-card__icon{width:180px;height:180px;right:-24px;bottom:-24px;}
   .awards-band__track{height:auto;}
-  .awards-band__sticky{position:static;height:auto;min-height:0;padding-block:var(--space-9);}
+  .awards-band__sticky{position:static;height:auto;min-height:0;padding-block:var(--space-section);}
   .awards-band__layout{flex-direction:column;align-items:stretch;}
   .awards-band__intro{width:auto;padding-right:var(--gutter);}
   .award-card{flex-basis:47vw;}
   .hero__float{width:60vw;}
   .hero__float--left{left:-30vw;}
   .hero__float--right{right:-30vw;}
-  /* the scroll-jacked reveal is off below desktop; let people swipe the row instead */
-  .awards-band__row{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  /* the scroll-jacked reveal is off below desktop; let people swipe the row instead.
+     it lost its left gutter once it stopped sitting beside the intro column,
+     so the first card was flush against the screen edge. */
+  .awards-band__row{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-left:var(--gutter);}
   .awards{scroll-snap-type:x mandatory;}
   .award-card{scroll-snap-align:start;}
 }
@@ -265,7 +267,8 @@ body{overflow-x:hidden;word-break:keep-all;overflow-wrap:break-word;}
      strip of 5 cards (the photo card first, then the 4 mosaic cards). The nested
      grid-column wrapper and .mosaic grid are flattened with display:contents so
      all 5 become peer flex items instead of a card containing a 2x2 grid. */
-  .programs-slider{display:flex;flex-direction:column;gap:var(--space-6);}
+  /* row-to-row gap now matches the card-to-card gap within a row (both space-5) */
+  .programs-slider{display:flex;flex-direction:column;gap:var(--space-5);}
   .programs-slider > .grid{display:flex;overflow-x:auto;overflow-y:hidden;
     scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:var(--space-5);}
   .programs-slider > .grid > div{display:contents;}
