@@ -265,7 +265,7 @@ body{word-break:keep-all;overflow-wrap:break-word;}
     width:115vw;overflow:visible;border-radius:0;}
   .hero__float--left{top:-14vw;right:-38vw;left:auto;}
   .hero__float--right{top:auto;bottom:8vw;left:-40vw;right:auto;}
-  .hero__float img{width:100%;height:auto;margin-left:0;animation:none;translate:0 0;}
+  .hero__float img{width:100%;height:auto;margin-left:0;}
 }
 @media (max-width:420px){
   .award-card{flex-basis:88vw;}
