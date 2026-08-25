@@ -191,7 +191,11 @@ body{word-break:keep-all;overflow-wrap:break-word;}
   display:flex;align-items:center;gap:var(--space-6);}
 .awards-band__trophy{width:340px;aspect-ratio:422/608;border-radius:var(--radius-md);flex:0 0 auto;
   object-fit:cover;display:block;}
-.awards-band__row{flex:1 1 auto;min-width:0;overflow:hidden;}
+.awards-band__row{flex:1 1 auto;min-width:0;overflow:hidden;
+  scrollbar-width:none;-ms-overflow-style:none;}
+.awards-band__row::-webkit-scrollbar{display:none;}
+.programs-slider > .grid{scrollbar-width:none;-ms-overflow-style:none;}
+.programs-slider > .grid::-webkit-scrollbar{display:none;}
 .awards{display:flex;gap:var(--space-5);will-change:transform;}
 .award-card{position:relative;overflow:hidden;flex:0 0 41%;
   border-radius:var(--radius-md);padding:var(--space-6);aspect-ratio:1/1;
@@ -251,11 +255,22 @@ body{word-break:keep-all;overflow-wrap:break-word;}
   .nav__menu{display:none;}
   /* hero title was sitting low because padding-top(240) far outweighed padding-bottom(120) */
   .hero{padding-top:100px;padding-bottom:80px;}
-  /* SENIOR PROGRAMS: row 1 and row 2 become two swipeable slides */
-  .programs-slider{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;}
-  .programs-slider > .grid{flex:0 0 100%;min-width:100%;scroll-snap-align:start;}
+  /* SENIOR PROGRAMS: top row and bottom row are each their own horizontal-scroll
+     strip of 5 cards (the photo card first, then the 4 mosaic cards). The nested
+     grid-column wrapper and .mosaic grid are flattened with display:contents so
+     all 5 become peer flex items instead of a card containing a 2x2 grid. */
+  .programs-slider{display:flex;flex-direction:column;gap:var(--space-6);}
+  .programs-slider > .grid{display:flex;overflow-x:auto;overflow-y:hidden;
+    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:var(--space-5);}
+  .programs-slider > .grid > div{display:contents;}
+  .programs-slider .mosaic{display:contents;}
+  .programs-slider .feature-card,
+  .programs-slider .mosaic-item{flex:0 0 80vw;scroll-snap-align:start;}
+  .programs-slider .feature-card{order:-1;}
   .feature-card__title{font-size:32px;}
-  /* 액티브 시니어 아카데미: cards snap-stack on top of each other while scrolling */
+  /* 액티브 시니어 아카데미: cards snap-stack on top of each other while scrolling.
+     position:sticky needs a non-clipping ancestor, so drop growth-band's overflow:hidden here. */
+  .growth-band{overflow:visible;}
   .growth{flex-direction:column;align-items:center;gap:var(--space-6);}
   .growth-card{position:sticky;}
   .growth-card:nth-child(1){top:90px;}
