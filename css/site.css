@@ -259,10 +259,13 @@ body{word-break:keep-all;overflow-wrap:break-word;}
   /* wave: the path is drawn for a 12:1 canvas — squishing it into a phone's
      narrow width at full height reads as jagged, so flatten it down */
   .hero__wave{height:64px;}
-  /* floats: stack top/bottom instead of left/right, and bigger */
-  .hero__float{top:auto;left:50%;right:auto;transform:translateX(-50%);width:140vw;}
-  .hero__float--left{top:-34vw;}
-  .hero__float--right{top:auto;bottom:-34vw;}
+  /* floats: rotated 90deg so the edge-crop reads against a horizontal edge;
+     top one anchored toward the left, bottom one toward the right — diagonal, not centered */
+  .hero__float{top:auto;left:auto;right:auto;transform:none;width:100vw;}
+  .hero__float--left{top:-24vw;left:-30vw;}
+  .hero__float--right{top:auto;bottom:-24vw;right:-30vw;}
+  .hero__float--left img{transform:rotate(90deg);}
+  .hero__float--right img{transform:rotate(-90deg);}
 }
 @media (max-width:420px){
   .award-card{flex-basis:88vw;}
