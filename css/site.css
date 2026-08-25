@@ -258,6 +258,8 @@ body{overflow-x:hidden;word-break:keep-all;overflow-wrap:break-word;}
   /* the outer 12-col grid uses inline grid-column spans; force full-width stacking */
   .grid > [style*="grid-column"]{grid-column:1 / -1 !important;}
   .mosaic,.stats{grid-template-columns:1fr;}
+  /* every card gap on mobile unified to 16px */
+  .mosaic,.stats,.awards{gap:var(--space-4);}
   .footer__row{flex-direction:column;}
   .footer__meta{align-items:flex-start;text-align:left;}
   .nav__menu{display:none;}
@@ -267,19 +269,29 @@ body{overflow-x:hidden;word-break:keep-all;overflow-wrap:break-word;}
      strip of 5 cards (the photo card first, then the 4 mosaic cards). The nested
      grid-column wrapper and .mosaic grid are flattened with display:contents so
      all 5 become peer flex items instead of a card containing a 2x2 grid. */
-  /* row-to-row gap now matches the card-to-card gap within a row (both space-5) */
-  .programs-slider{display:flex;flex-direction:column;gap:var(--space-5);}
-  .programs-slider > .grid{display:flex;overflow-x:auto;overflow-y:hidden;
-    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:var(--space-5);}
+  /* the inline padding-top on each row was left over from the pre-slider layout
+     and stacked on top of the flex gap, making the row-to-row space look bigger
+     than the 16px card gap below — kill it, gap is now the only source of space */
+  .programs-slider > .grid[style*="padding-top"]{padding-top:0 !important;}
+  .programs-slider{display:flex;flex-direction:column;gap:var(--space-4);
+    padding-top:var(--space-6);}
+  .programs-slider > .grid{display:flex;overflow-x:auto;overflow-y:visible;
+    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:var(--space-4);}
   .programs-slider > .grid > div{display:contents;}
   .programs-slider .mosaic{display:contents;}
   .programs-slider .feature-card,
   .programs-slider .mosaic-item{flex:0 0 80vw;scroll-snap-align:start;}
   .programs-slider .feature-card{order:-1;}
+  /* trailing spacer so the last card gets the same breathing room as the first —
+     flex/grid scroll containers don't reliably honor end-padding once scrolled
+     all the way, so a real spacer item is used instead */
+  .programs-slider > .grid::after{content:"";flex:0 0 1px;width:calc(var(--gutter) - var(--space-4));}
   .feature-card__title{font-size:32px;}
-  /* 액티브 시니어 아카데미: plain static stack, no sticky/scroll-jack */
+  /* 액티브 시니어 아카데미: plain static stack, no sticky/scroll-jack.
+     head-to-cards gap now matches the same space-6 used after Programs' heading. */
   .growth-band{overflow:visible;}
-  .growth{flex-direction:column;align-items:center;gap:var(--space-6);}
+  .growth-band__head{padding-bottom:var(--space-6);}
+  .growth{flex-direction:column;align-items:center;gap:var(--space-4);}
   .growth-card{width:min(var(--growth-card-w),80vw);}
   .growth-card__icon{width:130px;height:130px;right:-16px;bottom:-16px;}
   .award-card{flex-basis:78vw;min-width:0;}
